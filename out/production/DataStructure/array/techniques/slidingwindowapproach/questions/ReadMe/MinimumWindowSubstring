@@ -1,0 +1,121 @@
+#Detail explanation of minimum window substring algorithm
+we can use the sliding window technique. We can use two pointers left and right to represent the current window of the substring.
+We can also use two frequency maps freqS and freqT to keep track of the frequency of characters in the current window and the target string t, respectively.
+
+Initially, we can move the right pointer until we find all the characters in the target string t. Then, we can move the left pointer to the right until
+we no longer have a valid window (i.e., some characters in t are no longer included in the window).
+We can repeat this process until we have considered all possible windows of the string s.
+
+Here's the step-by-step algorithm:
+
+1.Create two frequency maps freqS and freqT to store the frequency of characters in s and t, respectively.
+2.Initialize two pointers left and right to 0.
+3.Initialize a variable minWindow to an empty string "".
+4.Initialize a variable count to the length of the target string t.
+5.Move the right pointer until we find all the characters in the target string t:
+     1.If the current character s[right] is in t, decrement its frequency in freqT and increment freqS.
+     2.If the frequency of s[right] in freqS is less than or equal to its frequency in freqT, decrement count.
+     3.Increment right.
+6.Move the left pointer to the right until we no longer have a valid window:
+     1.If the current character s[left] is in t, increment its frequency in freqT and decrement freqS.
+     2.If the frequency of s[left] in freqS becomes less than its frequency in freqT, increment count.
+     3.Increment left.
+Update minWindow if the current window is shorter than the previous minimum window.
+Repeat steps 5-7 until we have considered all possible windows of the string s.
+Return minWindow.
+
+
+
+freqT.getOrDefault(c, 0) + 1 is used to get the current count of character c in the t string. Here's what it does:
+
+we are updating the frequency map freqT for character c. The put() method is used to add a key-value pair to the map.
+In this case, the key is the character c and the value is its frequency in the t string.
+We use the getOrDefault() method to retrieve the current frequency of character c from the freqT map.
+If the character is not present in the map, it returns the default value of 0.
+Then we add 1 to the current frequency to indicate that we have encountered one more occurrence of the character c in the t string.
+Finally, we update the freqT map with the new frequency count.
+Overall, this line of code is used to build the frequency map of characters in the t string.
+We iterate over each character c in the t string and update its count in the freqT map. The resulting map stores the frequency of all characters in the t string.
+We can then use this map to compare the frequency of characters in the current window of the s string.
+
+We add 1 to the current count to indicate that we have encountered one more occurrence of the character c in the t string.
+This is because we are building a frequency map of characters in the t string.
+The frequency of a character represents the number of times the character appears in the string.
+In this case, we are iterating over each character c in the t string and updating its count in the freqT map.
+The initial count for each character is 0. However, as we encounter more occurrences of a character in the string,
+we need to increment its count in the map to keep track of its frequency.
+For example, if the t string is "hello", the initial frequency map will be {h=0, e=0, l=0, o=0}.
+As we encounter each character in the string, we update its count in the map. After encountering the first 'l', the map becomes {h=0, e=0, l=1, o=0}.
+After encountering the second 'l', the map becomes {h=0, e=0, l=2, o=0}.
+By incrementing the count of each character in the map as we encounter them in the t string,
+we can easily check if a given window of the s string contains all the characters of the t string,
+by comparing the frequency of each character in the window to its frequency in the t string.
+
+
+We are initializing the variable count to the length of the t string in order to keep track of the number of characters in the t string that
+we still need to find in the current window of the s string.
+As we slide the window over the s string, we are trying to find the minimum window substring that contains all the characters in the t string.
+We can do this by keeping track of the frequency of each character in the t string, and then checking if the frequency of each character in the current
+window of the s string matches its frequency in the t string.
+To keep track of the remaining characters we still need to find in the current window,
+we initialize the variable count to the length of the t string. Then, as we slide the window over the s string,
+we decrement count every time we find a character from the t string in the window. When count reaches 0,
+we have found all the characters from the t string in the current window,
+and we can update our minimum window substring accordingly.
+
+if (freqS.get(c) <= freqT.get(c)) {
+                count--;
+    }
+This code block is executed every time a character c from the s string is encountered in the current window.
+freqS is the frequency map of characters in the current window of the s string, and freqT is the frequency map of characters in the t string.
+The condition freqS.get(c) <= freqT.get(c) checks if the frequency of the character c in the current window of the s string is less than or
+equal to its frequency in the t string. If this condition is true, it means that we have found a character from the t string in the current window.
+In this case, we decrement the variable count, which represents the number of characters in the t string that we still need to
+find in the current window of the s string. By decrementing count, we are indicating that we have found one more character from the t string in the current window.
+
+For example, if the t string is "hello" and the current window of the s string is "llohe", the frequency maps would be:
+freqS = {h=1, e=1, l=2, o=1}
+freqT = {h=1, e=1, l=2, o=1}
+As we iterate over each character in the current window, we encounter the characters "l", "l", "o", "h", and "e". The frequency maps are updated as follows:
+
+freqS = {h=1, e=1, l=2, o=1}  # 'l' count incremented to 2
+freqS = {h=1, e=1, l=2, o=2}  # 'o' count incremented to 2
+freqS = {h=1, e=1, l=2, o=2}  # 'h' count incremented to 1
+freqS = {h=1, e=2, l=2, o=2}  # 'e' count incremented to 2
+When we encounter the first "l", the condition freqS.get(c) <= freqT.get(c) is true, so we decrement count.
+When we encounter the second "l", the condition is true again, so we decrement count again. After decrementing count twice, it becomes 0,
+which means we have found all the characters from the t string in the current window.
+
+explain this  while (count == 0) {
+            if (right - left < minLen) {
+                minLen = right - left;
+                minWindow = s.substring(left, right);
+            }
+            char lc = s.charAt(left);
+            if (freqT.containsKey(lc)) {
+                freqS.put(lc, freqS.get(lc) - 1);
+                if (freqS.get(lc) < freqT.get(lc)) {
+                    count++;
+                }
+            }
+            left++;
+}
+
+This is the main loop of the algorithm that slides the window to the right, checks if the current window contains all characters of the target string,
+and updates the minimum window substring accordingly.
+Inside the while loop, the first step is to check if the current window contains all characters of the target string.
+This is done by checking the value of the count variable, which tracks the number of characters in the target string that are not yet covered by the current window.
+If count is zero, it means that the current window contains all characters of the target string.
+
+If count is zero, the algorithm checks if the current window is smaller than the minimum window found so far.
+If yes, it updates the value of minLen and minWindow accordingly.
+
+After that, the algorithm moves the left pointer of the window to the right by one position. The character at the new left position is stored in lc.
+The algorithm then checks if lc is a character of the target string. If yes, it updates the frequency of lc in the current window in the freqS map and
+checks if the new frequency is less than the frequency of lc in the target string (i.e., freqS.get(lc) < freqT.get(lc)).
+If yes, it means that lc is no longer covered by the current window, and hence count is incremented by 1.
+
+This process is repeated until the end of the string s is reached or until the current window no longer contains all characters of the target string.
+At the end of the loop, the algorithm returns the value of minWindow, which is the minimum window substring containing all characters of the target string.
+
+
