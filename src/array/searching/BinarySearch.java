@@ -1,4 +1,28 @@
 package array.searching;
+/*
+Binary search can be implemented only on a sorted list of items. If the elements are not sorted already, we need to sort them first.
+
+Binary Search Algorithm can be implemented in two ways which are discussed below.
+1. Iterative Method
+2. Recursive Method
+
+The recursive method follows the divide and conquer approach.
+
+The general steps for both methods are discussed below.
+
+The array in which searching is to be performed is:
+The binary search algorithm works as follows:
+
+1. Identify the middle element of the sorted array or list.
+
+2. Compare the middle element with the target value:
+- If the middle element is equal to the target value, the search is successful, and the index of the target element is returned.
+- If the middle element is greater than the target value, the target value must be in the left half of the search space. Repeat the search process on the left half.
+- If the middle element is less than the target value, the target value must be in the right half of the search space. Repeat the search process on the right half.
+
+3. Repeat steps 1 and 2 on the updated search space until the target value is found or the search space is empty.
+
+* */
 
 public class BinarySearch {
 
@@ -44,3 +68,13 @@ public class BinarySearch {
         }
     }
 }
+
+/*
+Time Complexities
+Best case complexity: O(1)
+Average case complexity: O(log n)
+Worst case complexity: O(log n)
+
+Space Complexity
+The space complexity of the binary search is O(1).
+* */
