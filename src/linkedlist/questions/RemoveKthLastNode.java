@@ -39,6 +39,26 @@ public class RemoveKthLastNode {
         return head;
     }
 
+    public static Node removeNthNodeOnePass(Node head, int n){
+        Node fast = head;
+        Node slow = head;
+
+        for(int i = 0; i < n; i++){
+            if(fast ==  null){
+                return head.next;
+            }
+            fast = fast.next;
+        }
+
+        while(fast.next != null){
+            slow = slow.next;
+            fast = fast.next;
+        }
+
+        slow.next = slow.next.next;
+        return head;
+    }
+
     public static void printList(Node node){
         while (node != null){
             System.out.print(node.data + " ");
