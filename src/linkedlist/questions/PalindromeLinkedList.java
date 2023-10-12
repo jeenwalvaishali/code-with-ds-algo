@@ -1,7 +1,7 @@
 package linkedlist.questions;
 
 public class PalindromeLinkedList {
-    public boolean isPalindrome(Node head) {
+    public static boolean isPalindrome(Node head) {
         if (head == null || head.next == null) {
             return true;
         }
@@ -27,19 +27,43 @@ public class PalindromeLinkedList {
         return true;
     }
 
-    private Node reverseLinkedList(Node head) {
+    private static Node reverseLinkedList(Node head) {
         Node prev = null;
         Node current = head;
-        Node next = null;
+        Node temp = null;
 
         while (current != null) {
-            next = current.next;
+            temp = current.next;
             current.next = prev;
             prev = current;
-            current = next;
+            current = temp;
         }
 
         return prev;
+    }
+
+    public static void printList(Node head){
+        while (head != null){
+            System.out.print(head.data + "->");
+            head = head.next;
+        }
+        System.out.println(".");
+
+    }
+
+    public static void main(String[] args){
+        Node head = new Node(85);
+        head.next = new Node(15);
+        head.next.next = new Node(4);
+        head.next.next.next = new Node(20);
+
+        System.out.println("Given linked list");
+        printList(head);
+        head = reverseLinkedList(head);
+        System.out.println("");
+        System.out.println("Reversed linked list ");
+        printList(head);
+
     }
 
 }

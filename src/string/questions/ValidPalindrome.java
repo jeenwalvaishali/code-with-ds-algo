@@ -25,7 +25,9 @@ public class ValidPalindrome {
     public static boolean isValidPalindrome(String s){
         String str = s.replaceAll("[^a-zA-Z0-9]", "");
         String reverseString = "";
-        for (int i=str.length()-1; i>=0; i--){
+        int end = str.length()-1;
+        int start = 0;
+        for (int i=end; i>=start; i--){
             reverseString = reverseString + str.charAt(i);
         }
 
