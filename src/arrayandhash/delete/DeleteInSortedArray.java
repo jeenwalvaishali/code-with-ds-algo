@@ -13,9 +13,9 @@ public class DeleteInSortedArray {
         }
 
         if (key < arr[mid]){
-            return binarySearch(arr, arr[mid-1], high,  key);
+            return binarySearch(arr, low, mid-1,  key);
         }else {
-            return binarySearch(arr, low, arr[mid+1], key);
+            return binarySearch(arr, mid+1, high, key);
         }
     }
 
@@ -39,7 +39,7 @@ public class DeleteInSortedArray {
         int[] arr = {10, 20, 30, 40, 50 };
 
         int n = arr.length;
-        int key = 30;
+        int key = 50;
 
         System.out.println("Array before deleting an element:\n");
         for (int i=0; i<n; i++){
