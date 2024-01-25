@@ -28,9 +28,9 @@ public class PrintDiagonals {
         int n = 4;
         int[][] matrix = {
                 { 1, 2, 3, 4 },
-                { 5, 6, 7, 8 },
-                { 1, 2, 3, 4 },
-                { 5, 6, 7, 8 }
+                { 4, 3, 2, 1 },
+                { 7, 8, 9, 6 },
+                { 6, 5, 4, 3 }
         };
 
         printPrincipalDiagonal(matrix, n);
@@ -38,7 +38,7 @@ public class PrintDiagonals {
         printSecondaryDiagonal(matrix, n);
     }
 
-    private static void printSecondaryDiagonal(int[][] matrix, int n) {
+    private static void printPrincipalDiagonal(int[][] matrix, int n) {
         for (int i = 0; i<n; i++){
             for (int j=0; j<n; j++){
                 if(i == j){
@@ -49,7 +49,7 @@ public class PrintDiagonals {
         }
     }
 
-    private static void printPrincipalDiagonal(int[][] matrix, int n) {
+    private static void printSecondaryDiagonal(int[][] matrix, int n) {
         for (int i = 0; i<n; i++){
             for (int j=0; j<n; j++){
                 if(i+j == n-1){

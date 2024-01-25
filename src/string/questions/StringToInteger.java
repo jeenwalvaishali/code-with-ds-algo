@@ -1,4 +1,4 @@
-package arrayandhash.questions;
+package string.questions;
 
 public class StringToInteger {
     public static int myAtoi(String s) {
