@@ -38,6 +38,7 @@ public class EncodeAndDecodeString {
         }
 
         encodedString.append(strings.get(listSize-1));
+        System.out.println(strings.get(listSize-1) + "values");
 
         return encodedString.toString();
     }
@@ -53,7 +54,7 @@ public class EncodeAndDecodeString {
     }
 
     public static void main(String[] args) {
-        List<String> input = Arrays.asList("we", "say", ":", "yes");
+        List<String> input = Arrays.asList("lint","code","love","you");
         System.out.println("Input: " + input);
         String encodedString = encodeString(input);
         System.out.println("Encoded String: " + encodedString);
