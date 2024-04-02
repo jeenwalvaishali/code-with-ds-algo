@@ -1,4 +1,4 @@
-package arrayandhash.searching;
+package searching;
 /*
 Binary search can be implemented only on a sorted list of items. If the elements are not sorted already, we need to sort them first.
 

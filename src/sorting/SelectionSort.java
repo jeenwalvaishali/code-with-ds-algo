@@ -1,4 +1,4 @@
-package arrayandhash.sorting;
+package sorting;
 
 public class SelectionSort {
 

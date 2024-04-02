@@ -11,7 +11,7 @@ Solution using the two-pointer technique:
    c. If the sum is greater than the target, move the right pointer one step to the left.
 3.If no pair of values adds up to the target, return null or an empty array.
 * */
-
+/*leetCode 167. Two Sum II - Input Array Is Sorted*/
 import java.util.Arrays;
 
 public class TwoPointerApproach {

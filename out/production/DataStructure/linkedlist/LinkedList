@@ -1,0 +1,128 @@
+Linked List : Linked list is a linear data structure, which consists of a group of nodes in a sequence [OR] Linked list in which we store data in linear from!
+
+Advantages                                              DisAdvantages
+
+1. Dynamic Nature                                   1. More memory usage due to address pointer
+2. Optimal insertion & deletion                     2. Slow traversal compared to arrays
+3. Stack's & queues can be easily implemented       3. No reverse traversal in singly linked list
+4. No memory wastage                                4. No random access
+
+Real-life Application's :-
+Previous - n - next page in browser
+Image Viewer
+Music Player
+
+
+There are 4 type's of linked list, but in general we use 3 type's only:-
+
+Singly-linked list: linked list in which each node points to the next node and the last node points to null
+image
+
+Doubly-linked list: linked list in which each node has two pointers, p and n, such that p points to the previous node and n points to the next node; 
+the last node's n pointer points to null
+
+Circular-linked list: linked list in which each node points to the next node and the last node points back to the first node
+
+Circular-Doubly-linked list:
+A circular doubly linked list is a data structure in which each element contains references to both its previous and next elements, 
+forming a circular structure where the last element points to the first and vice versa.
+
+Time Complexity:
+
+Access: O(n)
+Search: O(n)
+Insert: O(1)
+Remove: O(1)
+
+Let's see how to create a linked list
+Code :-
+
+class Node {
+   int data;
+   Node next;
+  
+   public Node(int data){
+        this.data = data;
+        this.next = null;
+   }
+}
+
+Therefore,
+
+class Node {
+   int data;
+   Node next;
+
+   public Node(int data){
+        this.data = data;
+        this.next = null;
+   }
+}
+
+void main() {
+   Node node1 = new Node(10);
+   Node node2 = new Node(20);
+   Node node3 = new Node(30);
+
+   Node head = node1;
+   node1.next = node2;
+   node2.next = node3;
+   node3.next = null;
+}
+
+Let's see how we traverse in linked list
+Code:-
+
+class Node {
+   int data;
+   Node next;
+
+   public Node(int data){
+        this.data = data;
+        this.next = null;
+   }
+}
+
+void main(){
+   traverse(head);
+}
+
+void traverse(Node head){
+   Node currentNode = head;
+
+   while(currentNode != null){
+      System.out.printLn(currentNode.data);
+      currentNode = currentNode.next;
+   }
+}
+
+Let's see how to insert an element[node] in linked list
+Code:-
+
+public class LinkedList {
+
+   static Node headNode;
+
+    public static void insertAtEnd(int data){
+        Node newNode = new Node(data);
+
+        if(headNode == null){
+           headNode = newNode;
+           return;
+        }
+
+        Node currentNode = headNode;
+        while(currentNode.next != null){
+           currentNode = currentNode.next;
+        }
+
+        currentNode.next = newNode;
+    }
+
+    public static void insertAtFront(int data){
+        Node newNode = new Node(data);
+        newNode.next = headNode;
+        headNode = newNode;
+    }
+
+}
