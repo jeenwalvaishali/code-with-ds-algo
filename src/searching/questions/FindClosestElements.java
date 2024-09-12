@@ -54,13 +54,16 @@ Problem Statement
 You need to find k closest elements to a given value x from a sorted array arr.
 
 Solution Overview
-The solution uses a combination of binary search and a straightforward list construction to efficiently find the k closest elements. Here's a step-by-step breakdown:
+The solution uses a combination of binary search and a straightforward list construction to efficiently
+find the k closest elements. Here's a step-by-step breakdown:
 
 Step-by-Step Explanation
 
 Define the Search Range:
 int left = 0, right = arr.length - k;
-left and right define the range of indices in the array where the closest k elements can start. The initial range is from 0 to arr.length - k because if left was greater than this, there wouldn't be enough space for k elements.
+left and right define the range of indices in the array where the closest k elements can start.
+The initial range is from 0 to arr.length - k because if left was greater than this,
+there wouldn't be enough space for k elements.
 
 Binary Search for Optimal Starting Index:
 while (left < right) {
@@ -73,7 +76,9 @@ while (left < right) {
 }
 This binary search aims to find the starting index where the k closest elements should be taken.
 mid is the middle point in the current search range.
-We compare the distance from x to the element at mid with the distance to the element mid + k. If x is closer to arr[mid + k], then the range should move right (left = mid + 1); otherwise, it should move left (right = mid).
+We compare the distance from x to the element at mid with the distance to the element mid + k.
+If x is closer to arr[mid + k], then the range should move right (left = mid + 1);
+otherwise, it should move left (right = mid).
 
 Construct the Result List:
 List<Integer> result = new ArrayList<>();
@@ -87,11 +92,14 @@ return result;
 Finally, we return the list of the k closest elements.
 
 Key Points
-Binary Search: This approach efficiently narrows down the starting index of the closest k elements using binary search, which operates in O(log(n)) time complexity.
-Linear Time Construction: Constructing the result list takes linear time relative to k, making the overall time complexity O(k + log(n)).
+Binary Search: This approach efficiently narrows down the starting index of the closest k elements using binary search,
+which operates in O(log(n)) time complexity.
+Linear Time Construction: Constructing the result list takes linear time relative to k,
+making the overall time complexity O(k + log(n)).
 Space Complexity: The space complexity is O(k) due to the storage of the result list.
 
 Why This Approach Works
 The sorted nature of the array allows us to leverage binary search effectively.
-By comparing distances from x to the elements at mid and mid + k, we ensure that we are selecting the optimal starting point for the closest k elements.
+By comparing distances from x to the elements at mid and mid + k,
+we ensure that we are selecting the optimal starting point for the closest k elements.
 */
