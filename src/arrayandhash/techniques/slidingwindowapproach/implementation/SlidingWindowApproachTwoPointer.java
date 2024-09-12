@@ -42,7 +42,7 @@ public class SlidingWindowApproachTwoPointer {
     }
 
     public static void main(String[] args){
-        String str = "Slidingwindow";
+        String str = "abcabcbb";
 
         int maxSum = findLongestSubstring(str);
         System.out.println(maxSum);

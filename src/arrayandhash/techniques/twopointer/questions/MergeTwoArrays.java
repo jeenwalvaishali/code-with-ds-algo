@@ -31,7 +31,7 @@ Note that because m = 0, there are no elements in nums1. The 0 is only there to 
 
 import java.util.Arrays;
 
-public class MergeTwoArrays {
+public class  MergeTwoArrays {
 
     public static void mergeSortedArrays(int[] num1, int m, int[] num2, int n){
        int i = m-1;
@@ -59,10 +59,10 @@ public class MergeTwoArrays {
     }
 
     public static void main(String[] args){
-        int[] num1 = {0};
-        int[] num2 = {1};
-        int m = 0;
-        int n = 1;
+        int[] num1 = {1,2,3,0,0,0};
+        int[] num2 = {2,5,6};
+        int m = 3;
+        int n = 3;
 
         mergeSortedArrays(num1,m,num2,n);
 

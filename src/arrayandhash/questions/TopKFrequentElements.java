@@ -3,6 +3,16 @@ package arrayandhash.questions;
 import java.util.*;
 
 /*
+
+Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.
+Example 1:
+Input: nums = [1,1,1,2,2,3], k = 2
+Output: [1,2]
+
+Example 2:
+Input: nums = [1], k = 1
+Output: [1]
+
 Map.Entry<Integer, Integer>: This represents an entry in a map where the key and value are both of type Integer.
 In the context of the code, the key represents an element from the array, and the value represents the frequency of that element.
 

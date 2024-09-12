@@ -2,13 +2,13 @@ package arrayandhash.insertion;
 
 public class InsertAtEndUnsorted {
 
-    public static int insertAtEnd(int[] arr, int capacity, int n, int key){
+    public static int insertAtEnd(int[] arr, int capacity, int n, int value){
 
         if (n>=capacity){
             return n;
         }
 
-        arr[n] = key;
+        arr[n] = value;
 
         return (n+1);
     }
@@ -24,16 +24,16 @@ public class InsertAtEndUnsorted {
         arr[5] = 6;
 
         int n = 6;
-        System.out.println(n);
         int capacity = arr.length;
-        int key = 7;
+        System.out.println(capacity);
+        int value = 7;
 
         System.out.print("Before insertion:  ");
         for (int i = 0; i<n; i++){
             System.out.print(arr[i] + " ");
         }
 
-        n = insertAtEnd(arr,capacity,n,key);
+        n = insertAtEnd(arr,capacity,n,value);
 
         System.out.print("After insertion:  ");
         for (int i = 0; i<n; i++){

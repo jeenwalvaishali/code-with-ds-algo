@@ -37,3 +37,7 @@ public class RemoveDuplicates {
         System.out.println(result);
     }
 }
+
+/*Summary
+removeDuplicates method has a time complexity of O(n) and a space complexity of O(n).
+removeDuplicatesArray method has a time complexity of O(n) and a space complexity of O(1).*/
