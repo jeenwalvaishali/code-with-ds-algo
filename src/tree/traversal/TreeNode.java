@@ -1,12 +1,12 @@
 package tree.traversal;
 
-public class Node {
+public class TreeNode {
 
     int item;
-    Node left;
-    Node right;
+    TreeNode left;
+    TreeNode right;
 
-    public Node(int data){
+    public TreeNode(int data){
         item = data;
         left = null;
         right = null;

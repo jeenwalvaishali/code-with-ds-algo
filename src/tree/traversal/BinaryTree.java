@@ -1,16 +1,14 @@
 package tree.traversal;
 
-import javax.sound.midi.Soundbank;
-
 public class BinaryTree {
 
-    Node root;
+    TreeNode root;
 
     public BinaryTree(){
         root = null;
     }
 
-    public static void inOrder(Node node){
+    public static void inOrder(TreeNode node){
         if(node == null){
             return;
         }
@@ -20,7 +18,7 @@ public class BinaryTree {
         inOrder(node.right);
     }
 
-    public static void postOrder(Node node){
+    public static void postOrder(TreeNode node){
         if(node == null){
             return;
         }
@@ -30,7 +28,7 @@ public class BinaryTree {
         System.out.print(node.item + "=>");
     }
 
-    public static void preOrder(Node node){
+    public static void preOrder(TreeNode node){
         if(node == null){
             return;
         }
@@ -42,11 +40,11 @@ public class BinaryTree {
 
     public static void main(String[] args) {
         BinaryTree tree = new BinaryTree();
-        tree.root = new Node(1);
-        tree.root.left = new Node(12);
-        tree.root.right = new Node(9);
-        tree.root.left.left = new Node(5);
-        tree.root.left.right = new Node(6);
+        tree.root = new TreeNode(1);
+        tree.root.left = new TreeNode(12);
+        tree.root.right = new TreeNode(9);
+        tree.root.left.left = new TreeNode(5);
+        tree.root.left.right = new TreeNode(6);
 
         System.out.println("Inorder traversal");
         inOrder(tree.root);

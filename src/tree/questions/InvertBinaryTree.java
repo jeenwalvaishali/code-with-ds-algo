@@ -14,17 +14,17 @@ Output: []
 
 public class InvertBinaryTree {
 
-    Node root;
+    TreeNode root;
 
     public InvertBinaryTree(){
         root = null;
     }
 
-    public static Node invertTree(Node root){
+    public static TreeNode invertTree(TreeNode root){
         if(root == null){
             return null;
         }
-        Node temp = root.left;
+        TreeNode temp = root.left;
         root.left = root.right;
         root.right = temp;
 
@@ -34,26 +34,26 @@ public class InvertBinaryTree {
         return root;
     }
 
-    public static void printTree(Node root){
+    public static void printTree(TreeNode root){
 
         if(root == null){
             return;
         }
 
-        System.out.print(root.item + " ");
+        System.out.print(root.val + " ");
         printTree(root.left);
         printTree(root.right);
     }
 
     public static void main(String[] args){
         InvertBinaryTree binaryTree = new InvertBinaryTree();
-        binaryTree.root = new Node(4);
-        binaryTree.root.left = new Node(2);
-        binaryTree.root.right = new Node(7);
-        binaryTree.root.left.left = new Node(1);
-        binaryTree.root.left.right = new Node(3);
-        binaryTree.root.right.left = new Node(6);
-        binaryTree.root.right.right = new Node(9);
+        binaryTree.root = new TreeNode(4);
+        binaryTree.root.left = new TreeNode(2);
+        binaryTree.root.right = new TreeNode(7);
+        binaryTree.root.left.left = new TreeNode(1);
+        binaryTree.root.left.right = new TreeNode(3);
+        binaryTree.root.right.left = new TreeNode(6);
+        binaryTree.root.right.right = new TreeNode(9);
 
         printTree(binaryTree.root);
 

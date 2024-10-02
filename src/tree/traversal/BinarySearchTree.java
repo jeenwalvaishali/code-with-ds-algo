@@ -1,7 +1,7 @@
 package tree.traversal;
 
 public class BinarySearchTree {
-    Node root;
+    TreeNode root;
 
     public BinarySearchTree(){
         root = null;
@@ -11,9 +11,9 @@ public class BinarySearchTree {
         root = insertItem(root, item);
     }
 
-    public Node insertItem(Node root, int item) {
+    public TreeNode insertItem(TreeNode root, int item) {
         if (root == null){
-            root = new Node(item);
+            root = new TreeNode(item);
             return root;
         }
 
@@ -29,7 +29,7 @@ public class BinarySearchTree {
         inOrderTraversal(root);
     }
 
-    private void inOrderTraversal(Node root) {
+    private void inOrderTraversal(TreeNode root) {
         if (root != null){
             inOrderTraversal(root.left);
             System.out.print(root.item + " -> ");
@@ -41,7 +41,7 @@ public class BinarySearchTree {
         root = deleteItem(root, item);
     }
 
-    private Node deleteItem(Node root, int item) {
+    private TreeNode deleteItem(TreeNode root, int item) {
         if (root == null){
             return root;
         }
@@ -68,7 +68,7 @@ public class BinarySearchTree {
     The minValue function takes a node root as input and returns the minimum value in the subtree rooted at that node.
     It finds the minimum value by traversing to the leftmost node in the subtree.*/
 
-    private int minValue(Node root) {
+    private int minValue(TreeNode root) {
         int min = root.item;
         while (root.left != null){
           min = root.left.item;
