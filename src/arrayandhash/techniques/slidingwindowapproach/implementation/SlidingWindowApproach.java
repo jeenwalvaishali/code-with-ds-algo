@@ -34,6 +34,19 @@ public class SlidingWindowApproach {
 
         maxSum = windowSum;
 
+      /*  What this line is really doing
+        The most important line is:
+
+        windowSum += arr[i] - arr[i-k];
+
+        Think of it as:
+
+        new window sum
+                =
+                old window sum
+        - number leaving the window
+                + number entering the window*/
+
         for (int i = k; i<n; i++){
             windowSum += arr[i] - arr[i-k];
             maxSum = Math.max(maxSum,windowSum);

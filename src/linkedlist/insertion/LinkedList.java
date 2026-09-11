@@ -52,4 +52,5 @@ public class LinkedList {
                 "Linked List after inserting node : ");
         printList();
     }
+
 }

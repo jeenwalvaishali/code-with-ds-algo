@@ -27,6 +27,33 @@ public class SlidingWindowApproachTwoPointer {
         int maxLength = 0;
 
         Set<Character> set = new HashSet<>();
+                /*A very simple analogy
+Imagine you're reading a book.
+
+right = the page you're currently reading.
+left = the page where your current section starts.
+You stop reading when right reaches the end of the book, not when left reaches the end.
+Similarly:
+
+while (right < n)
+
+means:
+
+Keep reading/processing until the right pointer reaches the end.
+
+And left simply adjusts the beginning of the current window.
+
+The easiest rule to remember
+For this problem:
+
+right = "What new character should I process?"
+left  = "How much of my current window should I remove?"
+
+Therefore:
+
+while (right < n)
+
+is the natural loop condition.*/
         while (right<n){
             if (!set.contains(str.charAt(right))){
                 set.add(str.charAt(right));

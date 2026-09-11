@@ -20,43 +20,85 @@ There may exists other ways to achieve this answer too.
 
 public class LongestRepeatChrReplace {
 
-    public static int longestRepeatString(String s, int k){
-        int n = s.length();
+//    public static int longestRepeatString(String s, int k){
+//        int n = s.length();
+//        int[] charCount = new int[26];
+//
+//        int maxLen = 0; // the variable to store length of the longest String.
+//        int maxCount = 0; // the maximum count of a single character in the current window.
+//        int uniqueChars = 0; // the count of unique characters in the current window.
+//
+//        int left = 0;
+//        int right = 0;
+//
+//
+//        while (right < n){
+//
+//            char rightChar = s.charAt(right);
+//            if (charCount[rightChar - 'A'] == 0){
+//                uniqueChars++;
+//            }
+//
+//            charCount[rightChar - 'A']++;
+//            maxCount = Math.max(maxCount, charCount[rightChar - 'A']);
+//
+//
+//            while (uniqueChars > (maxCount + k)){
+//                char leftChar = s.charAt(left);
+//                charCount[leftChar - 'A']--;
+//                if (charCount[leftChar - 'A'] == 0){
+//                    uniqueChars--;
+//                }
+//                left++;
+//            }
+//
+//            maxLen = Math.max(maxLen, right-left + 1);
+//            right++;
+//        }
+//
+//        return maxLen;
+//    }
+
+    public static int longestRepeatString(String s, int k) {
         int[] charCount = new int[26];
 
-        int maxLen = 0; // the variable to store length of the longest String.
-        int maxCount = 0; // the maximum count of a single character in the current window.
-        int uniqueChars = 0; // the count of unique characters in the current window.
+        int maxLen = 0;
+        int maxCount = 0;
 
         int left = 0;
-        int right = 0;
 
-        while (right < n){
+        for (int right = 0; right < s.length(); right++) {
 
             char rightChar = s.charAt(right);
-            if (charCount[rightChar - 'A'] == 0){
-                uniqueChars++;
-            }
 
             charCount[rightChar - 'A']++;
-            maxCount = Math.max(maxCount, charCount[rightChar - 'A']);
 
+            maxCount = Math.max(
+                    maxCount,
+                    charCount[rightChar - 'A']
+            );
 
-            while (uniqueChars > (maxCount + k)){
+            // Number of characters we need to replace
+            int windowLength = right - left + 1;
+            int replacementsNeeded = windowLength - maxCount;
+
+            while (replacementsNeeded > k) {
+
                 char leftChar = s.charAt(left);
                 charCount[leftChar - 'A']--;
-                if (charCount[leftChar - 'A'] == 0){
-                    uniqueChars--;
-                }
+
                 left++;
+
+                windowLength = right - left + 1;
+                replacementsNeeded = windowLength - maxCount;
             }
 
-            maxLen = Math.max(maxLen, right-left + 1);
-            right++;
+            maxLen = Math.max(maxLen, right - left + 1);
         }
 
         return maxLen;
     }
+
 
     public static void main(String[] args) {
         // Example 1
@@ -70,3 +112,4 @@ public class LongestRepeatChrReplace {
         System.out.println("Example 2 Output: " + longestRepeatString(s2, k2));
     }
 }
+
