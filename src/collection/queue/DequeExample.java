@@ -17,7 +17,7 @@ public class DequeExample {
 
         prices.addLast(100);
         prices.addLast(200);
-        prices.addLast(300);
+        prices.addFirst(300);
 
         System.out.println(prices);
 
